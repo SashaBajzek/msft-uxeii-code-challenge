@@ -1,0 +1,22 @@
+.Button {
+    background-color: var(--button-background-color);
+    block-size: 50px;
+    border: none;
+    border-radius: 10px;
+    color: var(--button-text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    padding-inline: 45px;
+  
+    &:hover,
+    &:focus-visible {
+      background-color: var(--button-background-color-hover);
+      cursor: pointer;
+    }
+  
+    &:active {
+      background-color: var(--button-background-color-active);
+      cursor: pointer;
+    }
+  }
+  

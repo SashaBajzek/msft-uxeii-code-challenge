@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--background-color-main);
+}
+
+/**
+ * Hide the content, but make sure it is still visible to VoiceOver and roughly the right place in the UI.
+ * Note: we cannot use `visibility: hidden` and this must have a size for VoiceOver on iOS.
+**/
+
+.VisuallyHidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}

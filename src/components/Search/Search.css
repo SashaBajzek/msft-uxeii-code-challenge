@@ -1,0 +1,8 @@
+.Search {
+    .wrapper {
+      display: flex;
+      gap: 10px;
+      inline-size: 100%;
+    }
+  }
+  

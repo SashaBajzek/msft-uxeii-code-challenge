@@ -1,0 +1,22 @@
+:root {
+    --cream: #fff8f2;
+    --deep-teal: #385955;
+    --light-grey: #b1b1b9;
+    --dark-grey: #2f3a4b;
+    --white: #fff;
+  
+    --text-color-dark-default: var(--dark-grey);
+    --text-color-dark-dimmed: var(--light-grey);
+    --text-color-light-default: var(--white);
+  
+    --background-color-main: var(--cream);
+  
+    --button-background-color: var(--deep-teal);
+    --button-background-color-hover: #456e69;
+    --button-background-color-active: #436b66;
+    --button-text-color: var(--white);
+  
+    --input-border-color: var(--light-grey);
+    --input-background-color: var(--white);
+  }
+  

@@ -1,0 +1,33 @@
+.Dog {
+    inline-size: 400px;
+  
+    &.link {
+      text-decoration: none;
+    }
+  
+    &.link img,
+    &.image {
+      block-size: 250px;
+      border-radius: 20px;
+      inline-size: 400px;
+      object-fit: cover;
+    }
+  
+    .name {
+      align-items: flex-end;
+      block-size: 41px;
+      color: var(--text-color-dark-default);
+      display: flex;
+      font-size: 24px;
+      inline-size: 400px;
+      margin: 0;
+      text-transform: capitalize;
+    }
+  
+    &:hover.link img,
+    &:focus-within.link img {
+      box-shadow: 0 2px 18px rgb(34 34 34 / 40%);
+      transition: box-shadow 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42);
+    }
+  }
+  
