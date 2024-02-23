@@ -6,7 +6,7 @@ const Header = ({}) => {
   return (
     <header className="Header">
       <Link className="link" to="/">
-        <img aria-hidden={true} src="woofer.svg" className="App-logo" alt="" />
+        <img aria-hidden={true} src="/woofer.svg" className="App-logo" alt="" />
         Woofer
       </Link>
       <Search />

@@ -1,22 +1,50 @@
 .Button {
-    background-color: var(--button-background-color);
-    block-size: 50px;
-    border: none;
-    border-radius: 10px;
-    color: var(--button-text-color);
-    font-size: 1rem;
-    font-weight: 600;
-    padding-inline: 45px;
-  
+  background-color: var(--button-background-color);
+  block-size: 50px;
+  border: none;
+  border-radius: 10px;
+  color: var(--button-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding-inline: 45px;
+
+  &.rainbow {
+    padding-inline: 30px;
+
     &:hover,
     &:focus-visible {
-      background-color: var(--button-background-color-hover);
-      cursor: pointer;
+      color: black;
+      background: linear-gradient(
+        to bottom right,
+        rgba(221, 189, 192, 0.8),
+        rgba(216, 216, 186, 0.8),
+        rgba(184, 216, 188, 0.8),
+        rgba(171, 202, 218, 0.8),
+        rgba(183, 180, 219, 0.8)
+      );
     }
-  
+
     &:active {
-      background-color: var(--button-background-color-active);
-      cursor: pointer;
+      color: black;
+      background: linear-gradient(
+        to bottom right,
+        rgba(221, 189, 192, 0.9),
+        rgba(216, 216, 186, 0.9),
+        rgba(184, 216, 188, 0.9),
+        rgba(171, 202, 218, 0.9),
+        rgba(183, 180, 219, 0.9)
+      );
     }
   }
-  
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--button-background-color-hover);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: var(--button-background-color-active);
+    cursor: pointer;
+  }
+}

@@ -1,8 +1,11 @@
 import "./Button.css";
 
-const Button = ({ children, onClick = () => {} }) => {
+const Button = ({ children, onClick = (e) => {}, isRainbow = false }) => {
   return (
-    <button className="Button" onClick={onClick}>
+    <button
+      className={`Button ${isRainbow ? "rainbow" : ""}`}
+      onClick={(e) => onClick(e)}
+    >
       {children}
     </button>
   );

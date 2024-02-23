@@ -18,3 +18,11 @@ html {
   pointer-events: none;
   position: absolute;
 }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  /* Replacing focus outline with a consistent box-shadow */
+  box-shadow: 0 0 5px 4px var(--box-shadow-color);
+  outline: none;
+}

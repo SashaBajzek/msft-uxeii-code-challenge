@@ -1,7 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import "./ComboBox.css";
+
+function capitalizeFirstLetters(string) {
+  const arr = string.split(" ");
+  if (arr.length === 1) return string.charAt(0).toUpperCase() + string.slice(1);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  return arr.join(" ");
+}
+
 const Combobox = ({ inputId, inputValue, setInputValue, optionsList }) => {
-  const [filteredOptions, setFilteredOptions] = useState(optionsList);
+  const [filteredOptions, setFilteredOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const inputRef = useRef(null);
@@ -21,6 +31,7 @@ const Combobox = ({ inputId, inputValue, setInputValue, optionsList }) => {
 
   const handleInputFocus = () => {
     setIsOpen(true);
+    setFilteredOptions(optionsList.sort());
   };
 
   const handleInputBlur = () => {
@@ -55,7 +66,7 @@ const Combobox = ({ inputId, inputValue, setInputValue, optionsList }) => {
   };
 
   const handleOptionClick = (option) => {
-    setInputValue(option);
+    setInputValue(capitalizeFirstLetters(option));
     setIsOpen(false);
   };
 
@@ -81,33 +92,33 @@ const Combobox = ({ inputId, inputValue, setInputValue, optionsList }) => {
   return (
     <div className="ComboBox">
       <input
-        ref={inputRef}
-        type="text"
         aria-autocomplete="list"
         aria-expanded={isOpen}
         aria-controls="listbox"
-        value={inputValue}
+        id={inputId}
+        name={inputId}
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         onKeyDown={handleKeyDown}
-        id={inputId}
-        name={inputId}
         placeholder="Dog type"
+        ref={inputRef}
+        type="text"
+        value={inputValue}
       />
-      {isOpen && inputValue.length > 1 && filteredOptions.length > 0 && (
+      {isOpen && filteredOptions.length > 0 && (
         <ul
-          id="listbox"
-          role="listbox"
-          ref={listboxRef}
           aria-label="Dog Breeds"
+          id="listbox"
+          ref={listboxRef}
+          role="listbox"
         >
           {filteredOptions.map((option, index) => (
             <li
-              key={option}
-              role="option"
               aria-selected={highlightedIndex === index}
+              key={option}
               onMouseDown={() => handleOptionClick(option)}
+              role="option"
               style={{
                 backgroundColor: highlightedIndex === index ? "#bde4ff" : "",
               }}

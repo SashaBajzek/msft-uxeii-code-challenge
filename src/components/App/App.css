@@ -1,5 +1,10 @@
 .App {
-    margin: 0 auto;
-    max-inline-size: 1260px;
-  }
-  
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block-end: 40px;
+}
+
+main {
+  margin: 0 auto;
+  max-inline-size: 1260px;
+}

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Dog from "../../components/Dog/Dog";
 import Grid from "../../components/Grid/Grid";
 import { useParams } from "react-router-dom";
-import fetchBreedImage from "../../fetches/fetchBreedImage.ts";
+import fetchBreedImage from "../../fetches/fetchBreedImage";
 import fetchSubBreedImages from "../../fetches/fetchSubBreedImages";
 import useBreedsParentage from "../../fetches/useBreedsParentage";
 import "./SubBreedDetails.css";
@@ -31,26 +31,30 @@ const SubBreedDetails = () => {
   });
 
   return (
-    <div className="SubBreedDetails">
-      <h2 className="heading">
-        {subBreed} {breed} Images
-      </h2>
+    <main className="SubBreedDetails">
+      <h1>
+        {subBreed} {breed}
+      </h1>
       <Grid>
         {subBreedImages && !isLoadingSubBreedImages
-          ? subBreedImages?.map((image, index) => (
-              <li key={index}>
-                <Dog image={image} name={subBreedImages} />
+          ? subBreedImages.map((breed) => (
+              <li key={breed}>
+                <Dog image={breed} name={breed} />
               </li>
             ))
-          : "loading images"}
+          : new Array(3).map((index) => (
+              <li key={index}>
+                <Dog image={""} name={"Loading"} />
+              </li>
+            ))}
       </Grid>
-      <h2 className="heading">Parent Breed</h2>
+      <h2 className="heading">Parent Breed:</h2>
       <Dog
         image={breedImage && !isLoadingBreedImage && breedImage}
         link={`/${breed}`}
         name={parent}
       />
-    </div>
+    </main>
   );
 };
 

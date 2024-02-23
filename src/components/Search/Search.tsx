@@ -42,9 +42,10 @@ const Search = () => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
           const breedName = formData.get("breedName") ?? "";
-          const arr = new String(breedName).split(" ");
+          const arr = new String(breedName).toLowerCase().split(" ");
 
           const string = new String(breedName)
+            .toLowerCase()
             .split(" ")
             .join(arr.length === 2 ? " " : "");
 
@@ -71,7 +72,9 @@ const Search = () => {
             setInputValue={setInputValue}
           />
           <Button>Search</Button>
-          <Button onClick={setRandomDog}>Random</Button>
+          <Button isRainbow={true} onClick={(e) => setRandomDog(e)}>
+            Random
+          </Button>
         </div>
       </form>
     </div>

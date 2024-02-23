@@ -13,7 +13,9 @@ const BreedDetails = () => {
   const { breed } = useParams();
   const subBreeds = breedsParentage[breed]?.children;
 
-  const { data: breedImages } = useQuery<string[]>({
+  const { data: breedImages, isLoading: isLoadingBreedImages } = useQuery<
+    string[]
+  >({
     queryKey: ["BreedImages", breed],
     queryFn: () => fetchBreedImages(breed),
   });
@@ -32,19 +34,23 @@ const BreedDetails = () => {
   });
 
   return (
-    <div className="BreedDetails">
-      <h2 className="heading">{breed} Images</h2>
+    <main className="BreedDetails">
+      <h1>{breed}</h1>
       <Grid>
-        {breedImages
-          ? breedImages.map((image, index) => (
-              <li key={index}>
-                <Dog image={image} name={breedImages} />
+        {breedImages && !isLoadingBreedImages
+          ? breedImages.map((breed) => (
+              <li key={breed}>
+                <Dog image={breed} name={breed} />
               </li>
             ))
-          : "loading images"}
+          : new Array(3).map((index) => (
+              <li key={index}>
+                <Dog image={""} name={"Loading"} />
+              </li>
+            ))}
       </Grid>
       <h2 className="heading">
-        {subBreeds && subBreeds.length > 0 ? "Sub-breeds" : "No Sub-breeds"}
+        {subBreeds && subBreeds.length > 0 ? "Sub-breeds:" : "No Sub-breeds"}
       </h2>
       {subBreeds && subBreeds.length > 0 ? (
         <Grid>
@@ -63,7 +69,7 @@ const BreedDetails = () => {
           ))}
         </Grid>
       ) : null}
-    </div>
+    </main>
   );
 };
 

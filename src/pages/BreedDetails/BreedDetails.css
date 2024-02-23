@@ -1,8 +1,13 @@
 .BreedDetails {
-    .heading {
-      font-size: 28px;
-      padding-block-start: 20px;
-      text-transform: capitalize;
-    }
+  h1 {
+    font-size: 2rem;
+    margin-block-start: 0;
+    text-transform: capitalize;
   }
-  
+
+  .heading {
+    font-size: 28px;
+    padding-block-start: 20px;
+    text-transform: capitalize;
+  }
+}

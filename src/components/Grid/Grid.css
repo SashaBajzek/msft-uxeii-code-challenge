@@ -1,11 +1,16 @@
 .Grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px 30px;
-    inline-size: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 30px;
+  inline-size: 100%;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@media (min-width: 1300px) {
+  .Grid {
     justify-content: flex-start;
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
   }
-  
+}
